@@ -1,0 +1,9 @@
+Algorithm: GEMM Simple
+Result matrix:
+File size is large so can't print it
+Execution Time : 1805172 microseconds
+
+Algorithm: GEMM Blocking
+Result matrix:
+File size is large so can't print it
+Execution Time : 1667540 microseconds
