@@ -12,6 +12,7 @@ Entry no - 2026AIM1015
 
 ## Structure
 
+```text
 CS509_AI1015/
 │
 ├── README.md
@@ -21,7 +22,8 @@ CS509_AI1015/
 │   ├── driver/
 │   ├── tests/
 │   └── outputs/
-└── assignment_02/ ..
+└── assignment_02/...
+```
 
 
 ## Folder Description
