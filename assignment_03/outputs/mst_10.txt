@@ -1,0 +1,31 @@
+Algorithm: Kruskal's MST
+
+MST edges:
+1 2 1
+8 9 10
+6 7 17
+0 7 41
+7 8 45
+1 6 46
+3 4 57
+2 3 70
+5 6 80
+
+Total MST weight: 367
+Execution time: 4.418 ms
+
+Algorithm: Prim's MST
+
+MST edges:
+0 7 41
+7 6 17
+7 8 45
+8 9 10
+6 1 46
+1 2 1
+2 3 70
+3 4 57
+6 5 80
+
+Total MST weight: 367
+Execution time: 0 ms
