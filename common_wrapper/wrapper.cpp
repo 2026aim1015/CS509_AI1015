@@ -11,6 +11,7 @@ int main()
         cout<<"Available Assignments"<<endl;
         cout<<"1. Assignment 1 - GEMM"<<endl;
         cout<<"2. Assignment 2 - Graph Algorithms"<<endl;
+        cout <<"3. Assignment 3 - MST"<<endl;
         cout<<"0. Exit"<<endl<<endl;
         cout<<"Enter your choice: ";
         cin>>choice;
@@ -19,7 +20,7 @@ int main()
             cout<<"Exiting..."<<endl;
             break;
         }
-        if(choice!=1 && choice!=2)
+        if(choice != 1 && choice != 2 && choice != 3)
         {
             cout<<"Invalid Choice"<<endl;
             continue;
@@ -249,6 +250,102 @@ int main()
                     default:
                         cout << "Invalid Option!" << endl;
                 }
+            }
+        }        
+        else if(choice == 3)
+        {
+            int option;
+
+            cout << endl << "Assignment 3 - MST" << endl;
+            cout << "1. Compile Assignment" << endl;
+            cout << "2. Run One Test File" << endl;
+            cout << "3. Run All Test Files" << endl;
+            cout << "4. Compile and Run All" << endl;
+            cout << "0. Back" << endl;
+
+            cout << endl << "Enter option: ";
+            cin >> option;
+
+            switch(option)
+            {
+                case 1:
+                    system("cmd /c \"cd assignment_03 && g++ -std=c++17 -O2 src/csr.cpp src/kruskal.cpp src/prim.cpp driver/main.cpp -o mst.exe\"");
+                    cout << "Assignment 3 compiled successfully." << endl;
+                    break;
+
+                case 2:
+                {
+                    int test;
+                    cout << endl;
+                    cout << "1. mst_10.txt" << endl;
+                    cout << "2. mst_100.txt" << endl;
+                    cout << "3. mst_1000.txt" << endl;
+                    cout << "4. mst_10000.txt" << endl;
+                    cout << "5. mst_50000.txt" << endl;
+                    cout << "6. mst_100000.txt" << endl;
+                    cout << "Enter test number: ";
+                    cin >> test;
+                    string file;
+                    if(test == 1)
+                        file = "mst_10.txt";
+
+                    else if(test == 2)
+                        file = "mst_100.txt";
+
+                    else if(test == 3)
+                        file = "mst_1000.txt";
+
+                    else if(test == 4)
+                        file = "mst_10000.txt";
+
+                    else if(test == 5)
+                        file = "mst_50000.txt";
+
+                    else if(test == 6)
+                        file = "mst_100000.txt";
+                    else
+                    {
+                        cout << "Invalid test number!" << endl;
+                        break;
+                    }
+                    string command = "cmd /c \"cd assignment_03 && mst.exe tests/"+ file + "\"";
+                    system(command.c_str());
+                    break;
+                }
+
+                case 3:
+                {
+                    string tests[] =
+                    {
+                        "mst_10.txt",
+                        "mst_100.txt",
+                        "mst_1000.txt",
+                        "mst_10000.txt",
+                        "mst_50000.txt",
+                        "mst_100000.txt"
+                    };
+                    for(int i = 0; i < 6; i++)
+                    {
+                        cout << endl;
+                        cout << "Running " << tests[i] << endl;
+                        string command ="cmd /c \"cd assignment_03 && mst.exe tests/"+ tests[i] + "\"";
+                        system(command.c_str());
+                    }
+                   break;
+                }
+                case 4:
+                    system("cmd /c \"cd assignment_03 && g++ -std=c++17 -O2 src/csr.cpp src/kruskal.cpp src/prim.cpp driver/main.cpp -o mst.exe\"");
+                    system("cmd /c \"cd assignment_03 && mst.exe tests/mst_10.txt\"");
+                    system("cmd /c \"cd assignment_03 && mst.exe tests/mst_100.txt\"");
+                    system("cmd /c \"cd assignment_03 && mst.exe tests/mst_1000.txt\"");
+                    system("cmd /c \"cd assignment_03 && mst.exe tests/mst_10000.txt\"");
+                    system("cmd /c \"cd assignment_03 && mst.exe tests/mst_50000.txt\"");
+                    system("cmd /c \"cd assignment_03 && mst.exe tests/mst_100000.txt\"");
+                    break;
+                case 0:
+                    break;
+                default:
+                    cout << "Invalid Option!" << endl;
             }
         }
     }

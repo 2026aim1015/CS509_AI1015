@@ -13,151 +13,69 @@ using namespace std::chrono;
 void printResult(const string& algorithm, const MSTResult& result)
 {
     cout << "Algorithm: " << algorithm << endl;
-
     cout << endl;
     cout << "MST edges:" << endl;
-
     for(size_t i = 0; i < result.edges.size(); i++)
     {
-        cout << result.edges[i].u << " "
-             << result.edges[i].v << " "
-             << result.edges[i].weight << endl;
+        cout << result.edges[i].u << " "<< result.edges[i].v << " "<< result.edges[i].weight << endl;
     }
-
     cout << endl;
-
-    cout << "Total MST weight: "
-         << result.total_weight << endl;
+    cout << "Total MST weight: "<< result.total_weight << endl;
 }
 
 
-// Measure and run Kruskal
+//to run kruskal algorithm
 MSTResult runKruskal(const CSRGraph& graph, double& time_ms)
 {
     auto start = high_resolution_clock::now();
-
     MSTResult result = kruskalMST(graph);
-
     auto end = high_resolution_clock::now();
-
-    time_ms =
-        duration<double, milli>(end - start).count();
-
+    time_ms =duration<double, milli>(end - start).count();
     return result;
 }
 
 
-// Measure and run Prim
+//to run prim algorithm
 MSTResult runPrim(const CSRGraph& graph, double& time_ms)
 {
     auto start = high_resolution_clock::now();
-
     MSTResult result = primMST(graph);
-
     auto end = high_resolution_clock::now();
-
-    time_ms =
-        duration<double, milli>(end - start).count();
-
+    time_ms = duration<double, milli>(end - start).count();
     return result;
 }
 
-
 int main(int argc, char* argv[])
 {
-    // -----------------------------------------------
-    // Check command-line argument
-    // -----------------------------------------------
-
     if(argc < 2)
     {
-        cout << "Usage: " << argv[0]
-             << " <input_file>" << endl;
-
+        cout << "Usage: " << argv[0]<< " <input_file>" << endl;
         return 1;
     }
 
     string filename = argv[1];
-
-
-    // -----------------------------------------------
-    // CSR conversion
-    //
-    // This is NOT timed.
-    // -----------------------------------------------
-
+    //call csr function
     CSRGraph graph = loadCSRGraph(filename);
 
-
-    // Check whether graph was loaded
+    //check whether graph was loaded
     if(graph.num_vertices == 0)
     {
-        cerr << "Error: Graph could not be loaded."
-             << endl;
-
+        cerr << "Error: Graph could not be loaded."<< endl;
         return 1;
     }
 
-
-    // -----------------------------------------------
-    // Run Kruskal
-    // -----------------------------------------------
-
     double kruskal_time;
-
-    MSTResult kruskal_result =
-        runKruskal(graph, kruskal_time);
-
-
-    // -----------------------------------------------
-    // Run Prim
-    // -----------------------------------------------
+    MSTResult kruskal_result = runKruskal(graph, kruskal_time);
 
     double prim_time;
+    MSTResult prim_result = runPrim(graph, prim_time);
 
-    MSTResult prim_result =
-        runPrim(graph, prim_time);
-
-
-    // -----------------------------------------------
-    // Print Kruskal result
-    // -----------------------------------------------
-
-    printResult(
-        "Kruskal's MST",
-        kruskal_result
-    );
-
-    cout << "Execution time: "
-         << kruskal_time
-         << " ms"
-         << endl;
-
+    printResult("Kruskal's MST",kruskal_result);
+    cout << "Execution time: "<< kruskal_time << " ms"<< endl;
 
     cout << endl;
-
-
-    // -----------------------------------------------
-    // Print Prim result
-    // -----------------------------------------------
-
-    printResult(
-        "Prim's MST",
-        prim_result
-    );
-
-    cout << "Execution time: "
-         << prim_time
-         << " ms"
-         << endl;
-
-
-    // -----------------------------------------------
-    // Check correctness
-    // -----------------------------------------------
-
+    printResult("Prim's MST",prim_result);
+    cout<<"Execution time: "<< prim_time<< " ms"<< endl;
     cout << endl;
-
-    
     return 0;
 }
