@@ -2,10 +2,10 @@ Algorithm: GEMM Simple
 Result Matrix:
 58 64 
 139 154 
-Execution Time : 0 microseconds
+Execution Time : 1 microseconds
 
 Algorithm: GEMM Blocking
 Result Matrix:
 58 64 
 139 154 
-Execution Time : 0 microseconds
+Execution Time : 1 microseconds

@@ -72,8 +72,7 @@ The driver.cpp file is the main program of the assignment. It reads the input fr
 ## Compilation and Execution
 
 Open a terminal in the assignment_01 directory and compile the program using:
-g++ -std=c++17 driver/main.cpp src/*.cpp ../common_wrapper/wrapper.cpp -o driver
-
+g++ -std=c++17 common_wrapper/wrapper.cpp -o wrapper
 This command compiles the driver program, source files, and the common wrapper into a single executable named driver.
 
 ## Execution
