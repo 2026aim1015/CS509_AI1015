@@ -6,7 +6,7 @@ Entry no - 2026AIM1015
 ## Programming Language and Tools
     Programming Language: C++
     Compiler: GNU G++
-    Operating System: Windows 10
+    Operating System: linux
     Version Control: Git
     Code Editor: Visual Studio Code
 
