@@ -274,35 +274,28 @@ From the repository root, compile the Vertex Coloring program:
 cd assignment_04
 g++ -std=c++17 -O2 src/csr.cpp src/vertex_coloring.cpp driver/vertex_coloring_driver.cpp -o vertex_coloring
 ```
-
 Compile PageRank:
 
 ```bash
 g++ -std=c++17 -O2 src/vertex_pagerank.cpp driver/vertex_pagerank_driver.cpp -o vertex_pagerank
 ```
-
 Return to the repository root:
 
 ```bash
 cd ..
 ```
-
 Compile the common wrapper:
 
 ```bash
 g++ -std=c++17 common_wrapper/wrapper.cpp -o common_wrapper/wrapper
 ```
-
 Run the wrapper:
 
 ```bash
 ./common_wrapper/wrapper
 ```
-
 The wrapper provides the option to select Assignment 4 and run Vertex Coloring or PageRank test cases.
-
 ---
-
 ## Output Files
 
 The generated Vertex Coloring outputs are stored in:
@@ -310,13 +303,11 @@ The generated Vertex Coloring outputs are stored in:
 ```text
 outputs/vertex_coloring/
 ```
-
 The generated PageRank outputs are stored in:
 
 ```text
 outputs/vertex_pagerank/
 ```
-
 Each output file contains the algorithm result and execution time.
 
 ---
@@ -330,7 +321,6 @@ The graph is stored in CSR form, requiring:
 ```text
 O(V + E)
 ```
-
 space for the graph representation.
 
 The coloring algorithm traverses the adjacency lists of the vertices. The additional arrays used for coloring require `O(V)` space.
