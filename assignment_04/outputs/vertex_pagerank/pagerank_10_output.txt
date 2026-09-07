@@ -1,0 +1,21 @@
+Rank files to use vertex_pagerank.
+
+We can continue exactly from where you stopped—no need to repeat the assignment details.
+
+Algorithm: PageRank
+Damping: 0.850000
+Vertex ranks:
+0 0.100000
+1 0.100000
+2 0.100000
+3 0.100000
+4 0.100000
+5 0.100000
+6 0.100000
+7 0.100000
+8 0.100000
+9 0.100000
+Sum of ranks: 1.000000
+Iterations: 1
+Converged: true
+Execution time: 0.004400 ms

@@ -1,4 +1,4 @@
-#include "../include/pagerank.h"
+#include "../include/vertex_pagerank.h"
 
 #include <cmath>
 #include <vector>
